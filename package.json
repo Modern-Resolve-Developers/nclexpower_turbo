@@ -6,7 +6,8 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "dev:simulator": "turbo run dev --filter=simulator"
+    "dev:simulator": "turbo run dev --filter=simulator",
+    "dev:backoffice": "turbo run dev --filter=web-backoffice"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",

@@ -9,7 +9,7 @@ export const RowSchema = z.object({
         xvalue: z.number(),
       })
     )
-    .min(4, { message: "mrsn array must contain a minimum of 4 elements" }),
+    .refine(data => data.filter(item => item.value).length === 4)
 });
 
 export type MrsnValidationType = z.infer<typeof RowSchema>;

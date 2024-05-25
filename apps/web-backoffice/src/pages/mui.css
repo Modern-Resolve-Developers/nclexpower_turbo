@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'HouseSans';
+    src: url(../../public/fonts/RNHouseSans-Bold.ttf) format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'HouseSans';
+    src: url(../../public/fonts/RNHouseSans-BoldItalic.ttf) format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HouseSans';
+    src: url(../../public/fonts/RNHouseSans-Italic.ttf) format('truetype');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HouseSans';
+    src: url(../../public/fonts/RNHouseSans-Light.ttf) format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'HouseSans';
+    src: url(../../public/fonts/RNHouseSans-LightItalic.ttf) format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HouseSans';
+    src: url(../../public/fonts/RNHouseSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'HouseSans';
+    src: url(../../public/fonts/RNHouseSans-Thin.ttf) format('truetype');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'HouseSans';
+    src: url(../../public/fonts/RNHouseSans-ThinItalic.ttf) format('truetype');
+    font-weight: 100;
+}

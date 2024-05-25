@@ -1,5 +1,5 @@
 import { SsrData, SsrQuestionaireContentProps } from "@/core/types/ssrData";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import { Paper, Grid } from "@mui/material";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,17 +14,12 @@ import { ControlledCheckbox } from "@/components/Checkbox";
 import { MrsnValidationType, RowSchema } from "@/core/schema/mrsn/validation";
 import { useAtom } from "jotai";
 import { useFormSubmissionBindingHooks } from "@repo/utils/hooks/useFormSubmissionBindingHooks";
+import { useCustomErrorHandling } from "@repo/utils/hooks";
 
 export const MRSNQuestion: React.FC<SsrData> = ({ questionaire, answer }) => {
-  const [state, setState] = useState([])
-  console.log("container",state)
 
   const foundAnswer = answer ? answer && answer.find(answer => answer.answerId) : null;
   const rows = foundAnswer ? foundAnswer.rows : [];
-
-  useEffect(() => {
-    setState(rows)
-  },[setState])
 
   const [mrsnAtom, setMrsnAtom] = useAtom(MrsnValidationAtom);
   const form = useForm<MrsnValidationType>({
@@ -35,7 +30,7 @@ export const MRSNQuestion: React.FC<SsrData> = ({ questionaire, answer }) => {
     },
   });
 
-  const { control } = form;
+  const { control, setError, clearErrors } = form;
 
   const { fields } = useFieldArray({
     name: "mrsn",
@@ -43,6 +38,14 @@ export const MRSNQuestion: React.FC<SsrData> = ({ questionaire, answer }) => {
   });
 
   const formState = useFormState({ control: control });
+
+    const ErrorMessage = useCustomErrorHandling({
+    formState: formState,
+    setError: setError,
+    clearErrors: clearErrors,
+    fieldName: 'mrsn',
+    message: 'Choose three option',
+  });
 
   useFormSubmissionBindingHooks({
     key: "MRSN",
@@ -164,6 +167,7 @@ export const MRSNQuestion: React.FC<SsrData> = ({ questionaire, answer }) => {
                               />
                             </ol>
                           ))}
+                          <ErrorMessage/>
                       </div>
                     </Paper>
                     <div className="w-full text-sm mb-4 pr-5 pt-4 flex gap-1">
