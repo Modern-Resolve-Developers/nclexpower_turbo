@@ -116,7 +116,7 @@ export const ApplicationProvider: React.FC<React.PropsWithChildren<Ssr>> = ({ ch
         selectedItem,
       }}
     >
-      <UnauthorizedDialog open={!hasAccessToken} />
+      <UnauthorizedDialog open={!accessToken} />
       {children}
     </ApplicationContext.Provider>
   );

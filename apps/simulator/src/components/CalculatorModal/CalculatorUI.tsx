@@ -29,7 +29,7 @@ export const CalculatorModal: React.FC<OpenModalProps> = ({ open, onClose }) => 
 
   const operatorStyle = {
     backgroundColor: '#007AB7',
-    color: '#f3f3f3',
+    color: '#007AB7',
     fontSize: '1.35rem',
     marginBottom: 0.5,
     height: 69,
@@ -58,7 +58,6 @@ export const CalculatorModal: React.FC<OpenModalProps> = ({ open, onClose }) => 
                 '& .MuiInputBase-input': {
                   padding: 3,
                   fontSize: 30,
-                  borderRadius: 5,
                   textAlign: 'end',
                 },
               }}
